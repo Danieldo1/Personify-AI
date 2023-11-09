@@ -39,7 +39,7 @@ const Nav = () => {
                     </span>
                     <SparkleIcon className="h-4 w-4 ml-2 fill-white text-white group-hover:fill-black group-hover:text-black group-hover:transition group-hover:delay-100" />
                 </Button>
-            <UserButton />
+            <UserButton afterSignOutUrl="/" />
         </div>
     </div>
   )

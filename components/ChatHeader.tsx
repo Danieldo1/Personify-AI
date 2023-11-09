@@ -26,12 +26,14 @@ const ChatHeader = ({companion}: ChatHeaderProps) => {
 
     const onDelete = async () => {
         try {
-            await axios.delete(`/api/companions/${companion.id}`)
+            await axios.delete(`/api/companion/${companion.id}`)
             toast({
                 title: "Success",
                 description: "Your companion has been deleted",
                 variant: "default"
             })
+            router.refresh()
+            router.push('/')
         } catch (error) {
             toast({
                 title: "Error",
@@ -54,13 +56,13 @@ const ChatHeader = ({companion}: ChatHeaderProps) => {
                 <div className="flex gap-x-2 items-center">
                     <p className=" font-bold">{companion.name}</p>
                     <div className="flex items-center text-xs text-muted-foreground">
-                        <MessagesSquare  className="w-3 h-3 m-1"/>
+                        <MessagesSquare  className="w-3 h-3 ml-5 m-1"/>
                         {companion._count.messages}
                     </div>
                 </div>
 {/* Created by */}
-                <p className="text-xs text-muted-foreground lowercase">
-                    Created by @{companion.userName}
+                <p className="text-xs text-muted-foreground ">
+                    Created by <span className="lowercase">@{companion.userName}</span> 
                 </p>
             </div>
         </div>

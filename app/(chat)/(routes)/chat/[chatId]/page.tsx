@@ -41,9 +41,9 @@ const ChatIdPage = async ({params}: ChatIdProps) => {
         return redirect('/')
     }
   return (
-    <div>
+   
         <ChatClient companion={companion} />
-    </div>
+    
   )
 }
 
