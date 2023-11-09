@@ -8,7 +8,7 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import { ModeToggle } from "./ModeToggle"
 import MobileSidebar from "./MobileSidebar"
-import Image from "next/image"
+import FancyText from '@carefully-coded/react-text-gradient';
 import { useProModal } from "@/hooks/UsePro"
 
 const font = Poppins({ subsets: ["latin"],weight: '600' })
@@ -25,17 +25,19 @@ const Nav = ({isPro}: NavProps) => {
   return (
     <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary h-16">
         <div className="flex items-center">
-            <MobileSidebar />
-                <Image 
-                src='/logo.svg'
-                width={45}
-                height={45}
-                alt="Personify Logo"
-                className="hidden md:block mx-1"
-                />
+            <MobileSidebar isPro={isPro} />
             <Link href='/'>
-                <h1 className={cn(font.className,"hidden md:block text-xl md:text-3xl font-bold text-primary")}>
-                    Personify AI
+                <div  className={cn(font.className," hidden md:block text-xl md:text-3xl font-bold text-primary")}>
+                    <FancyText
+                        gradient={{ from: '#0ea5e9', to: '#d063f1' }}
+                        animate
+                        animateDuration={5000}
+                        >
+                        Personify AI
+                    </FancyText>
+                </div>
+                <h1 >
+                   
                 </h1>
             </Link>
         </div>

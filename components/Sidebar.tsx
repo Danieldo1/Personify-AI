@@ -40,7 +40,7 @@ const onNavigate = (url: string,pro:boolean) => {
     return router.push(url)
 }
   return (
-    <div className="space-y-4 flex flex-col h-full text-primary bg-secondary">
+    <div className="space-y-4 flex flex-col h-full text-primary bg-secondary md:ml-4 mt-1">
         <div className="p-3 flex-1 justify-center flex">
             <div className="space-y-2">
                 
@@ -48,7 +48,7 @@ const onNavigate = (url: string,pro:boolean) => {
                     <div key={item.href} onClick={() => onNavigate(item.href,item.pro)} className={cn('text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-primary hover:bg-primary/10 rounded-lg transition',
                     pathname === item.href && 'bg-primary/10 text-primary'
                     )}>
-                        <div className="flex flex-col gap-y-2 items-center flex-1">
+                        <div className="flex flex-col gap-y-2 items-center flex-1 ">
                             <item.icon  className="h-5 w-5"/>
                             {item.label}
                         </div>
