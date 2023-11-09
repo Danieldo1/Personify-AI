@@ -42,6 +42,7 @@
     "react-spinner": "^0.2.7",
     "react-spinners": "^0.13.8",
     "replicate": "^0.18.1",
+    "stripe": "^14.3.0",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
