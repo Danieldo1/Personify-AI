@@ -1,11 +1,14 @@
 'use client'
 
+import { useProModal } from "@/hooks/UsePro"
 import { cn } from "@/lib/utils"
-import { Home, Plus,Settings } from "lucide-react"
+import { Home, Plus,Settings, SmilePlus } from "lucide-react"
 import { usePathname, useRouter } from "next/navigation"
 
-
-const Sidebar = () => {
+interface SidebarProps {
+    isPro: boolean
+}
+const Sidebar = ({isPro}: SidebarProps) => {
     const routes = [
     {
         icon: Home,
@@ -14,7 +17,7 @@ const Sidebar = () => {
         pro: false
     },
     {
-        icon: Plus,
+        icon: SmilePlus,
         href: '/companion/new',
         label: 'Create',
         pro: true
@@ -28,9 +31,12 @@ const Sidebar = () => {
 ]
 const pathname = usePathname()
 const router = useRouter()
+const proModal = useProModal()
 
 const onNavigate = (url: string,pro:boolean) => {
-    //check if pro
+    if(pro && !isPro){
+        return proModal.onOpen()
+    }
     return router.push(url)
 }
   return (

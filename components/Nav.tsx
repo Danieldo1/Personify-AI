@@ -13,7 +13,11 @@ import { useProModal } from "@/hooks/UsePro"
 
 const font = Poppins({ subsets: ["latin"],weight: '600' })
 
-const Nav = () => {
+interface NavProps {
+    isPro: boolean
+}
+
+const Nav = ({isPro}: NavProps) => {
     const proModal = useProModal()
 
 
@@ -38,12 +42,14 @@ const Nav = () => {
 
         <div className="flex items-center gap-x-3 ">
                 <ModeToggle />
+                {!isPro && (
                 <Button size={"sm"} variant={"fresh"} className="group before:ease relative overflow-hidden transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-green-500 hover:before:-translate-x-40" onClick={proModal.onOpen}>
                     <ShoppingBag className=" w-5 h-5 mr-2  group-hover:text-black group-hover:transition group-hover:delay-100" />
                     <span className="group-hover:text-black group-hover:transition group-hover:delay-100 ">
                     Go Premium
                     </span>
                 </Button>
+                )}
             <UserButton afterSignOutUrl="/" />
         </div>
     </div>
