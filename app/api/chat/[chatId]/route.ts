@@ -88,6 +88,8 @@ export async function POST(
         "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
       input: {
         max_length: 2048,
+        temperature: 0.45,
+        
       },
       apiKey: process.env.REPLICATE_API_TOKEN,
       callbackManager: CallbackManager.fromHandlers(handlers),
