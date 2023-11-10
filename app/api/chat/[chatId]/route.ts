@@ -85,7 +85,7 @@ export async function POST(
     // Call Replicate for inference
     const model = new Replicate({
       model:
-        "meta/llama-2-13b-chat:f4e2de70d66816a838a89eeeb621910adffb0dd0baba3976c96980970978018d",
+        "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
       input: {
         max_length: 2048,
       },
@@ -101,13 +101,9 @@ export async function POST(
         .call(
           `
         ONLY generate plain sentences without prefix of who is speaking. DO NOT use ${companion.name}: prefix. 
-
         ${companion.instructions}
-
         Below are relevant details about ${companion.name}'s past and the conversation you are in.
         ${relevantHistory}
-
-
         ${recentChatHistory}\n${companion.name}:`
         )
         .catch(console.error)
